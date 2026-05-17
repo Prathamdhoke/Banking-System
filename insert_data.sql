@@ -314,3 +314,77 @@ VALUES
     1000,
     'Active'
 );
+
+INSERT INTO loans (
+    loan_reference,
+    customer_id,
+    loan_type,
+    principal_amount,
+    interest_rate,
+    tenure_months,
+    monthly_emi,
+    remaining_balance,
+    loan_status,
+    approved_by
+)
+VALUES
+(
+    'LN20260001',
+    1,
+    'Home',
+    2500000,
+    8.5,
+    240,
+    21696,
+    2400000,
+    'Approved',
+    1
+),
+(
+    'LN20260002',
+    3,
+    'Vehicle',
+    800000,
+    9.2,
+    60,
+    16676,
+    720000,
+    'Approved',
+    2
+),
+(
+    'LN20260003',
+    5,
+    'Business',
+    5000000,
+    11.0,
+    120,
+    68857,
+    4800000,
+    'Pending',
+    NULL
+),
+(
+    'LN20260004',
+    7,
+    'Education',
+    1200000,
+    7.8,
+    84,
+    18654,
+    1150000,
+    'Approved',
+    3
+),
+(
+    'LN20260005',
+    9,
+    'Personal',
+    300000,
+    13.5,
+    36,
+    10179,
+    250000,
+    'Rejected',
+    2
+);
