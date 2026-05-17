@@ -126,4 +126,16 @@ CREATE TABLE loans (
     REFERENCES employees(employee_id)
 );
 
+CREATE TABLE audit_logs (
+	log_id INT PRIMARY KEY AUTO_INCREMENt,
+    account_id INT,
+    old_balance DECIMAL(12,2),
+    new_balance DECIMAL(12,2),
+    action_type VARCHAR(50),
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT fk_audit_account
+    FOREIGN KEY (account_id)
+    REFERENCES accounts(account_id)
+);
 
