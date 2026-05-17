@@ -146,4 +146,71 @@ VALUES
     'Kochi, Kerala'
 );
 
+INSERT INTO employees (
+    employee_code,
+    first_name,
+    last_name,
+    email,
+    phone,
+    branch_id,
+    role,
+    salary,
+    hire_date
+)
+VALUES
+(
+    'EMP1001',
+    'Rajesh',
+    'Sharma',
+    'rajesh.manager@bank.com',
+    '9100000001',
+    1,
+    'Manager',
+    95000,
+    '2018-03-15'
+),
+(
+    'EMP1002',
+    'Anita',
+    'Verma',
+    'anita.manager@bank.com',
+    '9100000002',
+    2,
+    'Manager',
+    92000,
+    '2019-06-20'
+),
+(
+    'EMP1003',
+    'Vikram',
+    'Rao',
+    'vikram.auditor@bank.com',
+    '9100000003',
+    3,
+    'Auditor',
+    85000,
+    '2020-01-10'
+),
+(
+    'EMP1004',
+    'Sneha',
+    'Kulkarni',
+    'sneha.teller@bank.com',
+    '9100000004',
+    4,
+    'Teller',
+    45000,
+    '2021-08-05'
+),
+(
+    'EMP1005',
+    'Arjun',
+    'Reddy',
+    'arjun.admin@bank.com',
+    '9100000005',
+    5,
+    'Admin',
+    120000,
+    '2017-11-25'
+);
 
