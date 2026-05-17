@@ -94,4 +94,36 @@ CREATE TABLE employees (
     REFERENCES branches(branch_id)
 );
 
+CREATE TABLE loans (
+	loan_id INT PRIMARY KEY AUTO_INCREMENT,
+    loan_reference VARCHAR(30) UNIQUE NOT NULL,
+    customer_id INT NOT NULL,
+    loan_type ENUM('Home','Personal','Education','Vehicle','Business') NOT NULL,
+    principal_amount DECIMAL(15,2) NOT NULL,
+    interest_rate DECIMAL(5,2) NOT NULL,
+    tenure_months INT NOT NULL,
+    monthly_emi DECIMAL(12,2),
+    remaining_balance DECIMAL(15,2),
+    loan_status ENUM('Pending','Approved','Rejected','Closed') DEFAULT 'Pending',
+    approved_by INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT chk_loan_amount
+    CHECK (principal_amount > 0),
+    
+    CONSTRAINT chk_interest_rate
+    CHECK (interest_rate > 0),
+    
+    CONSTRAINT chk_tenure
+    CHECK (tenure_months > 0),
+    
+    CONSTRAINT fk_loan_customer
+    FOREIGN KEY (customer_id)
+    REFERENCES customers(customer_id),
+    
+    CONSTRAINT fk_loan_approver
+    FOREIGN KEY (approved_by)
+    REFERENCES employees(employee_id)
+);
+
 
