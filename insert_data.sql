@@ -214,3 +214,103 @@ VALUES
     '2017-11-25'
 );
 
+INSERT INTO accounts (
+    account_number,
+    customer_id,
+    branch_id,
+    account_type,
+    balance,
+    minimum_balance,
+    status
+)
+VALUES
+(
+    'SBIN20260001',
+    1,
+    1,
+    'Saving',
+    75000,
+    1000,
+    'Active'
+),
+(
+    'SBIN20260002',
+    2,
+    2,
+    'Current',
+    120000,
+    5000,
+    'Active'
+),
+(
+    'SBIN20260003',
+    3,
+    3,
+    'Saving',
+    45000,
+    1000,
+    'Active'
+),
+(
+    'SBIN20260004',
+    4,
+    4,
+    'Saving',
+    98000,
+    1000,
+    'Frozen'
+),
+(
+    'SBIN20260005',
+    5,
+    5,
+    'Current',
+    250000,
+    5000,
+    'Active'
+),
+(
+    'SBIN20260006',
+    6,
+    1,
+    'Saving',
+    15000,
+    1000,
+    'Active'
+),
+(
+    'SBIN20260007',
+    7,
+    2,
+    'Saving',
+    82000,
+    1000,
+    'Closed'
+),
+(
+    'SBIN20260008',
+    8,
+    3,
+    'Current',
+    300000,
+    5000,
+    'Active'
+),
+(
+    'SBIN20260009',
+    9,
+    4,
+    'Saving',
+    64000,
+    1000,
+    'Active'
+),
+(
+    'SBIN20260010',
+    10,
+    5,
+    'Saving',
+    87000,
+    1000,
+    'Active'
+);
