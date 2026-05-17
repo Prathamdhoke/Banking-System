@@ -48,4 +48,28 @@ CREATE TABLE accounts(
     REFERENCES branches(branch_id)
 );
 
+CREATE TABLE transactions(
+	transaction_id INT PRIMARY KEY AUTO_INCREMENT,
+    transaction_reference VARCHAR(30) UNIQUE NOT NULL,
+    sender_account_id INT,
+    receiver_account_id INT,
+    amount DECIMAL(12,2) NOT NULL,
+    transaction_type ENUM('Transfer','Deposit','Withdraw') NOT NULL,
+    transaction_mode ENUM('UPI','NEFT','RTGS','IMPS','Cash') NOT NULL,
+    status ENUM('Pending','Success','Failed','Reversed') DEFAULT 'Pending',
+    remark VARCHAR(255),
+    transaction_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT chk_transaction_amount
+    CHECK (amount > 0),
+    
+    CONSTRAINT fk_sender_account
+    FOREIGN KEY (sender_account_id)
+    REFERENCES accounts(account_id),
+    
+    CONSTRAINT fk_receiver_account
+    FOREIGN KEY (receiver_account_id)
+    REFERENCES accounts(account_id)
+);
+
 
