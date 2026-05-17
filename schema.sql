@@ -72,4 +72,26 @@ CREATE TABLE transactions(
     REFERENCES accounts(account_id)
 );
 
+CREATE TABLE employees (
+	employee_id INT PRIMARY KEY AUTO_INCREMENt,
+    employee_code VARCHAR(20) UNIQUE NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone VARCHAR(15) UNIQUE NOT NULL,
+    branch_id INT NOT NULL,
+    role ENUM('Teller','Manager','Auditor','Admin') NOT NULL,
+    salary DECIMAL(12,2) NOT NULL,
+    hire_date DATE NOT NULL,
+    status ENUM('Active','Inactive','Suspended') DEFAULT 'Active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT chk_salary
+    CHECK (salary > 0),
+    
+    CONSTRAINt fk_employee_branch
+    FOREIGN KEY (branch_id)
+    REFERENCES branches(branch_id)
+);
+
 
